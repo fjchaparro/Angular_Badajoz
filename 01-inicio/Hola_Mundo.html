@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Hola Mundo</title>
+    <meta name="descripcion" content="Curso de AngularJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../lib/angular.js"></script>
+</head>
+<!-- Las etiquetas para los atributos propias de AngularJS comienzan todas por ng-
+ -->
+ <!-- ng-init para definir variables. 
+    En la practica no se hará así. Se inicializarán en el controller-->
+<body ng-app ng-init="userName='Pepe'; curso='AngularJS'"> 
+    <!-- Podemos añadir data- delante del atributo propio de 
+    Angular para indicar al Validador de HTML que el atributo se trata de 
+    una etiqueta propia. Quedaría así:
+    <body data-ng-app>
+    -->
+    <!--<p>Hola Mundo</p>-->
+    <form>
+
+        <p>
+            <label for="imputName">Nombre</label>
+            <!-- con el atributo ng-model estamos asignando el valor que 
+            introduzcamos en la caja de texto a la variable userName -->
+            <input id='imputName' type="text" ng-model="userName"></input>
+        </p>
+<!-- Todos los eventos html tienen su correspondiente etiqueta ng de AngularJS-->
+        <p>
+            <button ng-click="userName=''">Borrar</button>
+        </p>
+
+    </form>
+    <p>Bienvenido al curso de {{curso}}</p>
+    <p>Hola {{userName}}</p>
+</body>
+</html>
