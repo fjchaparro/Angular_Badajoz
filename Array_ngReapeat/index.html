@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Pensamientos</title>
+    <meta name="descripcion" content="Curso de AngularJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="./js/app.js"> </script>
+    <script src="./js/acumulador.controller.js"> </script>
+</head>
+<body ng-app="appMain" ng-controller="AppController as vm"> 
+    <form>
+        <p>PENSAMIENTOS</p>
+        <p>
+            <label for="valorElem">Incremento</label>
+            <input id='valorElem' type="text" ng-model="vm.pensamiento"></input>
+        </p>
+        <p>
+            <button ng-click="vm.aniadir()">Añadir</button>
+        </p>
+
+        <p>Pensamientos que has tenido:</p>
+        <p ng-repeat="elemento in vm.aPensamientos track by $index">
+            Tu pensamiento numero {{$index + 1}} es {{elemento}}
+        </p>
+
+        <p>
+            <button ng-click="vm.borrarLista()">Borrar Lista</button>
+        </p>
+    </form>
+
+    <ng-include src=" '../commons/piePagina.html' "></ng-include>
+    
+</body>
+</html>
