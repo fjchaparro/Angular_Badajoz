@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Lista de autores</title>
+    <meta name="descripcion" content="Curso de AngularJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-i18n/angular-locale_es-es.js"></script>
+    <script src="./js/app.js"> </script>
+<script src="./js/acumulador.controller.js"></script>
+
+</head>
+<body ng-app="appMain" ng-controller="AppController as $ctrl"> 
+    <form>
+        <p>LISTA DE AUTORES</p>
+        <p>
+        <label>Selecciona el orden:</label>
+        <select ng-model="$ctrl.orden">
+            <option value="nombre">Nombre</option>
+            <option value="apellidos">Apellidos</option>
+        </select>
+        </p>
+        <p>
+        <label>Elige genero:</label>
+        <select ng-model="$ctrl.genero"
+            ng-options=" genero as genero.nombre 
+                            for genero in $ctrl.generos 
+                        track by genero.idGenero">
+            <option value="">--Elige una opcion--</option>
+        </select>
+        </p>
+        <p>Campos a mostrar------------</p>
+        <p>
+            <label>Fecha de nacimiento:</label>
+            <input type="checkbox" name="fechaNac" ng-model="$ctrl.mostrarFechaNac"></input>
+        </p>            
+        <p>
+            <label>Pais:</label>
+            <input type="checkbox" name="pais" ng-model="$ctrl.mostrarPais"></input>
+        </p>   
+
+    </form>
+<article>
+    <ul>
+        <li ng-repeat="elemento in $ctrl.aListaAutores | orderBy: $ctrl.orden | filter: $ctrl.genero.nombre ">
+               <b> {{elemento.nombre}} {{elemento.apellidos}} </b>
+               {{ $ctrl.mostrarFechaNac ? ' - ' + (elemento.fechaNacimiento | date:'longDate' ): ''}}
+               {{ $ctrl.mostrarPais ? ' - ' + elemento.pais: ''}}
+                - Genero: 
+                <span ng-repeat="genero in elemento.generos track by $index ">
+                    {{ genero }} {{ !$last ? ", " : "." }} 
+                </span>               
+        </li>
+    </ul>            
+</article>    
+
+    <ng-include src=" '../commons/piePagina.html' "></ng-include>
+    
+</body>
+</html>
