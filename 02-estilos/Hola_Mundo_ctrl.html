@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Hola Mundo Controller</title>
+    <meta name="descripcion" content="Curso de AngularJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="./app.js"> </script>
+    <script src="./appController.js"> </script>
+</head>
+<!-- El nombre de ng-app puede ser el que queramos, por defecto suele ser appMain
+    Después en el archivo javaSctipr (app.js) tendremos que llamarlo igual-->
+<body ng-app="appMain" ng-controller="AppController as vm"> 
+    <form>
+        <p>
+            <label for="imputName">Nombre</label>
+            <input id='imputName' type="text" ng-model="vm.user.name"></input>
+        </p>
+        <p>
+            <button ng-click="vm.borrar()">Borrar</button>
+        </p>
+    </form>
+    <p>Bienvenido al curso de {{vm.curso}}</p>
+    <p>Hola {{vm.user.name}}</p>
+</body>
+</html>
