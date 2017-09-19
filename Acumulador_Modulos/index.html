@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Acumulador</title>
+    <meta name="descripcion" content="Curso de AngularJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="./js/app.js"> </script>
+    <script src="./js/acumulador.controller.js"> </script>
+</head>
+<body ng-app="appMain" ng-controller="AppController as vm"> 
+    <form>
+        <p>ACUMULADOR</p>
+        <p>
+            <label for="valorElem">Incremento</label>
+            <input id='valorElem' type="text" ng-model="vm.incremento"></input>
+        </p>
+        <p>
+            <button ng-click="vm.sumar()">Sumar</button>
+        </p>
+        <p>
+            <button ng-click="vm.restar()">Restar</button>
+        </p>
+    </form>
+    <p>Totales:</p>
+    <p>En el acumulador llevamos {{vm.total}}</p>
+</body>
+</html>
