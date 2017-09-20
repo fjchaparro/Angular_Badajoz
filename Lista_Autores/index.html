@@ -39,7 +39,18 @@
         <p>
             <label>Pais:</label>
             <input type="checkbox" name="pais" ng-model="$ctrl.mostrarPais"></input>
-        </p>   
+        </p>  
+        <p>
+            <label>Nuevo Autor:</label>
+          </p>
+          <p>
+            Nombre:<input type="text" name="nombre" ng-model="$ctrl.autorNuevo.nombre"
+                ng-required="true"></input>
+            Apellidos:<input type="text" name="apellidos" ng-model="$ctrl.autorNuevo.apellidos"></input>
+            Generos:<input type="text" name="generos" ng-model="$ctrl.autorNuevo.generos"></input>
+            País:<input type="text" name="pais" ng-model="$ctrl.autorNuevo.pais"></input>
+        </p>  
+        <button ng-click="$ctrl.aniadirAutor()">Añadir autor</button>
 
     </form>
 <article>

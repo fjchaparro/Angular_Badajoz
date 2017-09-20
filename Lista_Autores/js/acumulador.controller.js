@@ -1,11 +1,11 @@
 class AppController{
     
-$onInit (){
+    $onInit (){ 
 
     this.aListaAutores=[
         {
             nombre:'Pepe',
-            apellidos:'Perez',
+            apellidos:'Garcia',
             generos:['terror', 'ficcion'],
             fechaNacimiento: new Date('01/01/1998'),
             pais:'España'
@@ -19,7 +19,7 @@ $onInit (){
         },
         {
             nombre:'Paco',
-            apellidos:'Perez',
+            apellidos:'Blasco',
             generos:['policiaco', 'ficcion'],
             fechaNacimiento: new Date('01/01/1985'),
             pais:'España'
@@ -51,8 +51,30 @@ $onInit (){
             nombre:"terror"
         }        
     ];
+    
+    this.mostrarAniadir=false;
 
-}
+    this.autorNuevo={            
+    nombre:'',
+    apellidos:'',
+    generos:[],
+    fechaNacimiento: null,
+    pais:''};
+    
+    }
+
+
+    aniadirAutor () {
+        this.aListaAutores.push(this.autorNuevo);
+        this.autorNuevo={            
+            nombre:'',
+            apellidos:'',
+            generos:[],
+            fechaNacimiento: null,
+            pais:''};
+            
+            this.mostrarAniadir=false;    
+    }
 
 }
 
