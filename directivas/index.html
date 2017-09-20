@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Lista de autores</title>
+    <meta name="descripcion" content="Curso de AngularJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/default.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-i18n/angular-locale_es-es.js"></script>
+    <script src="./js/appModule.js"> </script>
+    <script src="./js/appController.js"></script>
+    <script src="../commons/commonModule.js"></script>
+    <script src="../commons/appDirectivas.js"></script>
+
+</head>
+<body data-ng-app="appModule" data-ng-controller="AppController as $ctrl"> 
+    <form>
+        <h1>DIRECTIVAS</h1>
+
+    </form>        
+
+    <p id = "div1"></p>
+    <p id = "div2"></p>
+    <p id = "div3"></p>
+    
+    <!--<div data-app-pie></div>-->
+    <app-pie autor="Fco Javier Chaparro"></app-pie>
+    
+</body>
+
+<script>
+//document.querySelector('#div1').innerHTML="<ul><li>Hola que tal 1</li></ul>"
+//$('#div2').html("<ul><li>Hola que tal 2</li></ul>")
+
+var oElement = document.querySelector('#div1')
+oElement.innerHTML="<ul><li>Hola que tal JS</li></ul>"
+
+var oElementJQ = $('#div2')
+oElementJQ.html("<ul><li>Hola que tal JQ</li></ul>")
+
+var oElementJQuery = $('#div3')
+oElementJQuery[0].innerHTML="<ul><li>Hola que tal JQ como elemento DOOM</li></ul>"
+
+console.dir(oElement)
+console.dir(oElementJQ)
+
+</script>
+
+</html>
