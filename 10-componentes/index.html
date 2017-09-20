@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Lista de autores</title>
+    <meta name="descripcion" content="Curso de AngularJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/default.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-i18n/angular-locale_es-es.js"></script>
+    <script src="./js/appModule.js"> </script>
+    <script src="./js/appController.js"></script>
+    <script src="./componentes/app-cabeza.component.js"></script>
+    <script src="./componentes/app-pie.component.js"></script>
+    <script src="./componentes/addTexto.component.js"></script>
+    <script src="./componentes/dosBotones.component.js"></script>
+
+</head>
+<body data-ng-app="appModule" data-ng-controller="AppController as $ctrl"> 
+
+    <app-cabeza></app-cabeza>
+
+    <div class="row">
+        <article>
+
+        <add-texto></add-texto>    
+        
+        <dos-botones btn1="$ctrl.btn1" btn1-clic="$ctrl.botonEnviar()"
+                btn2="$ctrl.btn2" btn2-clic="$ctrl.botonBorrar()">
+        </dos-botones>
+
+        <p> Variable en el scope padre: <i>{{$ctrl.texto}} </i></p>
+
+        </article>
+    </div>
+
+    <app-pie></app-pie>
+
+</body>
+</html>
